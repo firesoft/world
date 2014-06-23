@@ -1,0 +1,8 @@
+html,body {margin:0;padding:0;background-color:#000;width:100%;height:100%;overflow:hidden}
+
+#canvas-container {
+	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
