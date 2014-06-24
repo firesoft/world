@@ -13,9 +13,17 @@ function get(playerIds, callback) {
 function parseData(rows) {
 	var obj = {};
 	rows.forEach(function(row) {
-		obj[row.playerId] = row.address;
+		var ip = parseIp(row.address);
+		if (ip) {
+			obj[row.playerId] = ip;
+		}
 	});
 	return obj;
+}
+
+function parseIp(ip) {
+	if (!ip) return null;
+	return ip.split(':')[0];
 }
 
 module.exports.get = get;
