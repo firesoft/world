@@ -38,7 +38,7 @@ Game.prototype._getGameObjects = function() {
 
 Game.prototype._setPlayers = function(data) {
 	var _this = this;
-	data.players.forEach(function(player) {
+	data.forEach(function(player) {
 		_this.players.add(player);
 	});
 }

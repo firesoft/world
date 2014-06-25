@@ -1,12 +1,17 @@
 var geoip = require('geoip-lite');
 
 function get(players, callback) {
-	var newPlayers = [];
+	if (!players.length) {
+		return callback(null, []);
+	}
+	var playersCollection = [];
 	players.forEach(function(player) {
-		//here convert ip to coordinates
+		var geo = geoip.lookup(player.ip);
+		if (geo.ll[0] || geo.ll[1]) {
+			playersCollection.push({playerId: player.playerId, lat: geo.ll[0], long: geo.ll[1]});
+		}
 	});
-	
-	return newPlayers;
+	callback(null, playersCollection);
 }
 
-mnodule.exports.get = get;
+module.exports.get = get;

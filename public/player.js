@@ -4,7 +4,7 @@ var MAX_ALPHA = 0.5;
 
 function Player(player) {
 	this.playerId = player.playerId;
-	this.position = {x: player.x, y: player.y};
+	this.position = {x: player.long, y: player.lat};
 	this.liveTime = LIVE_TIME;
 	this.timer = 0;
 	this.alpha = 0;

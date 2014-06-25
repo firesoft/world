@@ -5,7 +5,7 @@ function Players() {
 Players.prototype.add = function(player) {
 	var playerId = player.playerId;
 	if (this.data.hasOwnProperty(playerId)) {
-		this.data[playerId].renew(player.x, player.y);
+		this.data[playerId].renew(player.long, player.lat);
 	} else {
 		this.data[playerId] = new Player(player);
 	}

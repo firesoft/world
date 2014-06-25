@@ -1,4 +1,4 @@
-var asyns = require('async');
+var async = require('async');
 var _ = require('lodash');
 
 var activePlayersCore2 = require('./active_players_core2.js');
@@ -12,7 +12,7 @@ function get(callback) {
 		external: activePlayersExternal.get
 	}, function(err, data) {
 		if (err) return callback(err, null);
-		callback(parseResults(data));
+		callback(null, parseResults(data));
 	});
 }
 
