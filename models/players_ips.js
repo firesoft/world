@@ -11,14 +11,18 @@ function get(playerIds, callback) {
 }
 
 function parseData(rows) {
-	var obj = {};
+	var players = [];
 	rows.forEach(function(row) {
 		var ip = parseIp(row.address);
-		if (ip) {
-			obj[row.playerId] = ip;
+		if (isValidIp(ip)) {
+			players.push({playerId: playerId, ip: ip});
 		}
 	});
 	return obj;
+}
+
+function isValidIp(ip) {
+	return (ip && ip!='0.0.0.0');
 }
 
 function parseIp(ip) {
