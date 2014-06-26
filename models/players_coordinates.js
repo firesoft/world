@@ -7,7 +7,7 @@ function get(players, callback) {
 	var playersCollection = [];
 	players.forEach(function(player) {
 		var geo = geoip.lookup(player.ip);
-		if (geo.ll[0] || geo.ll[1]) {
+		if (geo && (geo.ll[0] || geo.ll[1])) {
 			playersCollection.push({playerId: player.playerId, lat: geo.ll[0], long: geo.ll[1]});
 		}
 	});
